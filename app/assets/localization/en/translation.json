@@ -1,5 +1,8 @@
 {
   "home": {
-    "loginWithUserId": "Login With User ID"
+    "loginWithUserId": "Login With User ID",
+    "quickBalance": "Quick balance",
+    "userId": "User ID",
+    "password": "Password"
   }
 }

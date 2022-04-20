@@ -4,7 +4,7 @@ import colors from '../../assets/colors';
 const styles = StyleSheet.create({
   button: {
     width: '80%',
-    height: 60,
+    height: 50,
     alignContent: 'center',
     justifyContent: 'center',
     marginLeft: '10%',
@@ -22,8 +22,7 @@ const styles = StyleSheet.create({
     lineHeight: 38,
     fontWeight: 'bold',
     textAlign: 'center',
-    alignSelf: 'center',
-    textAlignVertical: 'center',
+    marginTop: 4,
   },
 });
 
