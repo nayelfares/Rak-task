@@ -18,6 +18,11 @@ export const styles = StyleSheet.create({
     borderBottomEndRadius: 200,
     overflow: 'hidden',
   },
+  register: {
+    position: 'absolute',
+    top: 16,
+    end: 10,
+  },
   child: {
     flex: 1,
     transform: [{scaleX: 0.5}],

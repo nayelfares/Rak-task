@@ -44,7 +44,9 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
           )}
           name="firstName"
         />
-        {errors.firstName && <Text>This is required.</Text>}
+        {errors.firstName && (
+          <Text style={styles.error}>This is required.</Text>
+        )}
         <Devider height={20} />
         <Controller
           control={control}
@@ -64,7 +66,7 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
           )}
           name="lastName"
         />
-        {errors.lastName && <Text>This is required.</Text>}
+        {errors.lastName && <Text style={styles.error}>This is required.</Text>}
         <SubmitButton
           style={styles.login}
           title="Submit"
@@ -92,7 +94,9 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
           )}
           name="firstName"
         />
-        {errors.firstName && <Text>This is required.</Text>}
+        {errors.firstName && (
+          <Text style={styles.error}>This is required.</Text>
+        )}
         <Devider height={20} />
         <Controller
           control={control}
@@ -112,7 +116,7 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
           )}
           name="lastName"
         />
-        {errors.lastName && <Text>This is required.</Text>}
+        {errors.lastName && <Text style={styles.error}>This is required.</Text>}
         <SubmitButton
           style={styles.login}
           title="Submit"

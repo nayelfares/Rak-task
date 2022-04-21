@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Back from '../../assets/icons/Back';
+import BorderedButton from '../../components/borderedButton';
 import LoginControl from './components/loginControl';
 import LoginView from './components/loginView';
 import {styles} from './style';
@@ -21,6 +22,7 @@ function Home() {
               </TouchableOpacity>
             </View>
           )}
+          <BorderedButton style={styles.register} title={'Register'} />
           <Text>Hello World</Text>
         </View>
       </View>

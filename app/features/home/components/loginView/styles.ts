@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
   login: {
     backgroundColor: colors.grey,
   },
+  error: {
+    marginStart: '10%',
+    marginEnd: '10%',
+  },
 });
 
 export default styles;
