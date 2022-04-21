@@ -9,6 +9,13 @@ import Devider from '../../../../components/Devider';
 import EditText from '../../../../components/editText';
 import SubmitButton from '../../../../components/submitButton';
 import useLocation from '../../../../hooks/useLocation';
+import {
+  os ,
+  deviceName,
+  macAddress,
+  imei,
+  ipAddress,
+} from '../../../../hooks/DeviceInfo';
 import styles from './styles';
 
 RNLocation.configure({
@@ -24,8 +31,8 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
     formState: {errors},
   } = useForm({
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      userId: '',
+      password: '',
     },
   });
 
@@ -58,11 +65,9 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
               value={value}
             />
           )}
-          name="firstName"
+          name="userId"
         />
-        {errors.firstName && (
-          <Text style={styles.error}>This is required.</Text>
-        )}
+        {errors.userId && <Text style={styles.error}>This is required.</Text>}
         <Devider height={20} />
         <Controller
           control={control}
@@ -80,9 +85,9 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
               value={value}
             />
           )}
-          name="lastName"
+          name="password"
         />
-        {errors.lastName && <Text style={styles.error}>This is required.</Text>}
+        {errors.password && <Text style={styles.error}>This is required.</Text>}
         <SubmitButton
           style={styles.login}
           title="Submit"
@@ -108,11 +113,9 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
               value={value}
             />
           )}
-          name="firstName"
+          name="userId"
         />
-        {errors.firstName && (
-          <Text style={styles.error}>This is required.</Text>
-        )}
+        {errors.userId && <Text style={styles.error}>This is required.</Text>}
         <Devider height={20} />
         <Controller
           control={control}
@@ -130,9 +133,9 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
               value={value}
             />
           )}
-          name="lastName"
+          name="password"
         />
-        {errors.lastName && <Text style={styles.error}>This is required.</Text>}
+        {errors.password && <Text style={styles.error}>This is required.</Text>}
         <SubmitButton
           style={styles.login}
           title="Submit"
