@@ -17,6 +17,7 @@ const EditText = ({
     <View style={container}>
       {focus ? <Text style={ph}>{placeholder}</Text> : <View style={ph} />}
       <TextInput
+        underlineColorAndroid={'#ACF75F'}
         autoFocus={autoFocus}
         keyboardType={keyboardType}
         placeholder={focus ? '' : placeholder}

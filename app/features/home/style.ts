@@ -1,9 +1,12 @@
 import {StyleSheet} from 'react-native';
-
 export const styles = StyleSheet.create({
   back: {
-    top: 50,
-    left: 16,
+    top: 10,
+    left: 10,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
     position: 'absolute',
     zIndex: 2,
   },

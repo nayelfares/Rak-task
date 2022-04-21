@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Back from '../../assets/icons/Back';
 import LoginControl from './components/loginControl';
 import LoginView from './components/loginView';
@@ -10,7 +10,7 @@ const baseKey = 'home';
 function Home() {
   const [showLoginView, setShowLoginView] = useState(false);
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
       <View style={styles.parent}>
         <View style={styles.child}>
           {showLoginView && (
@@ -37,7 +37,7 @@ function Home() {
           style={styles.loginControl}
         />
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 export default Home;
