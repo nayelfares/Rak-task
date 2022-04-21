@@ -1,5 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {Keyboard, Text, TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {
+  Animated,
+  Dimensions,
+  Easing,
+  Keyboard,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Back from '../../assets/icons/Back';
 import BorderedButton from '../../components/borderedButton';
@@ -20,6 +28,23 @@ function Home() {
       Keyboard.dismiss();
     }
   }, [showLoginView]);
+  const animatedValue = useRef(new Animated.Value(0)).current;
+
+  const translateY = animatedValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, -Dimensions.get('window').height + 70],
+    extrapolate: 'clamp',
+  });
+  useEffect(() => {
+    const toValue = showLoginView ? 1 : 0;
+    const time = showLoginView ? 500 : 0;
+    Animated.timing(animatedValue, {
+      toValue,
+      duration: time,
+      easing: Easing.linear,
+      useNativeDriver: true,
+    }).start();
+  }, [animatedValue, showLoginView]);
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.parent}>
@@ -33,7 +58,7 @@ function Home() {
             </View>
           )}
           <BorderedButton style={styles.register} title={'Register'} />
-          <View style={styles.abstact}>
+          <Animated.View style={[styles.abstact, {transform: [{translateY}]}]}>
             <Text style={styles.title}>RAKBank</Text>
             <Devider height={24} />
             <Text style={styles.description}>
@@ -41,7 +66,7 @@ function Home() {
               {'\n'}
               design
             </Text>
-          </View>
+          </Animated.View>
         </View>
       </View>
       {!showLoginView ? (
