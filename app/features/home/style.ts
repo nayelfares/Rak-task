@@ -1,5 +1,11 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../assets/colors';
 export const styles = StyleSheet.create({
+  abstact: {
+    position: 'absolute',
+    top: 90,
+    start: 30,
+  },
   back: {
     top: 10,
     left: 10,
@@ -9,6 +15,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'absolute',
     zIndex: 2,
+  },
+  description: {
+    color: colors.white,
+    fontSize: 22,
+    fontWeight: '100',
   },
   parent: {
     height: '60%',
@@ -22,6 +33,11 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: 16,
     end: 10,
+  },
+  title: {
+    color: colors.white,
+    fontSize: 36,
+    fontWeight: '500',
   },
   child: {
     flex: 1,
