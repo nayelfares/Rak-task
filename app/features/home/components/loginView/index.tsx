@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Controller, useForm} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import {KeyboardAvoidingView, Platform, Text, View} from 'react-native';
+import RNLocation from 'react-native-location';
+import {Point} from '../../../../classes/classes';
+
 import Devider from '../../../../components/Devider';
 import EditText from '../../../../components/editText';
 import SubmitButton from '../../../../components/submitButton';
-
+import useLocation from '../../../../hooks/useLocation';
 import styles from './styles';
+
+RNLocation.configure({
+  distanceFilter: 500,
+});
 const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
   const {t} = useTranslation();
+  const {getCurrentLocation, point}: any = useLocation();
+  const [selectedLocation, setSelectedLocation] = useState<Point>(point);
   const {
     control,
     handleSubmit,
@@ -19,6 +28,13 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
       lastName: '',
     },
   });
+
+  useEffect(() => {
+    getCurrentLocation();
+  }, [getCurrentLocation]);
+  useEffect(() => {
+    setSelectedLocation(point);
+  }, [point]);
   const onSubmit = (data: any) => {
     return console.log(data);
   };
