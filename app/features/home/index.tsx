@@ -9,16 +9,20 @@ import {
   View,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+
 import Back from '../../assets/icons/Back';
 import BorderedButton from '../../components/borderedButton';
 import Devider from '../../components/Devider';
+import ProgressBar from '../../components/progressBar';
 import LoginControl from './components/loginControl';
 import LoginView from './components/loginView';
+import {useLoginSelector} from './store/selectors';
 import {styles} from './style';
 
 const baseKey = 'home';
 function Home() {
   const [showLoginView, setShowLoginView] = useState(false);
+  const {loginLoading} = useLoginSelector();
   const onKeyboardDidHide = () => {
     setShowLoginView(false);
   };
@@ -47,6 +51,7 @@ function Home() {
   }, [animatedValue, showLoginView]);
   return (
     <SafeAreaView style={styles.screen}>
+      <ProgressBar isLoading={loginLoading} />
       <View style={styles.parent}>
         <View style={styles.child}>
           {showLoginView && (

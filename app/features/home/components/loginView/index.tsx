@@ -9,14 +9,10 @@ import Devider from '../../../../components/Devider';
 import EditText from '../../../../components/editText';
 import SubmitButton from '../../../../components/submitButton';
 import useLocation from '../../../../hooks/useLocation';
-import {
-  os ,
-  deviceName,
-  macAddress,
-  imei,
-  ipAddress,
-} from '../../../../hooks/DeviceInfo';
+import {useDeviceInfo} from '../../../../hooks/DeviceInfo';
 import styles from './styles';
+import {useDispatch} from 'react-redux';
+import {loginAction} from '../../store/actions';
 
 RNLocation.configure({
   distanceFilter: 500,
@@ -25,6 +21,8 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
   const {t} = useTranslation();
   const {getCurrentLocation, point}: any = useLocation();
   const [selectedLocation, setSelectedLocation] = useState<Point>(point);
+  const dispatch = useDispatch();
+  const [os, deviceName, macAddress, imei, ipAddress] = useDeviceInfo();
   const {
     control,
     handleSubmit,
@@ -43,13 +41,22 @@ const LoginView = ({showLoginView, baseKey, style}: any): JSX.Element => {
     setSelectedLocation(point);
   }, [point]);
   const onSubmit = (data: any) => {
-    return console.log(data);
+    let payload = {
+      userId: data.userId,
+      password: data.password,
+      os: os,
+      deviceName,
+      macAddress: macAddress,
+      imei: imei,
+      ipAddress: ipAddress,
+      longtude: selectedLocation.longitude,
+      latitude: selectedLocation.latitude,
+    };
+    dispatch(loginAction(payload));
   };
   if (Platform.OS === 'ios') {
     return (
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={style}>
+      <KeyboardAvoidingView behavior={'padding'} style={style}>
         <Controller
           control={control}
           rules={{
