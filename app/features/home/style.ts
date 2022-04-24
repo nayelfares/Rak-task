@@ -1,58 +1,29 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../assets/colors';
 export const styles = StyleSheet.create({
-  abstact: {
-    position: 'absolute',
-    top: 90,
-    start: 30,
-  },
-  back: {
-    top: 10,
-    left: 10,
-    width: 50,
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    zIndex: 2,
-  },
   description: {
-    color: colors.white,
-    fontSize: 22,
-    fontWeight: '100',
+    flex: 3,
+    fontWeight: '300',
+    color: colors.purple,
   },
-  parent: {
-    height: '60%',
-    width: '100%',
-    transform: [{scaleX: 2}],
-    borderBottomStartRadius: 200,
-    borderBottomEndRadius: 200,
-    overflow: 'hidden',
-  },
-  register: {
-    position: 'absolute',
-    top: 16,
-    end: 10,
-  },
-  title: {
-    color: colors.white,
-    fontSize: 36,
-    fontWeight: '500',
-  },
-  child: {
+  dev: {
     flex: 1,
-    transform: [{scaleX: 0.5}],
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
+    fontWeight: '600',
+  },
+  row: {
+    flexDirection: 'row',
   },
   screen: {
-    height: '100%',
-    width: '100%',
+    height: '90%',
+    width: '80%',
+    marginStart: '10%',
+    marginEnd: '10%',
+    marginTop: '5%',
   },
-  loginControl: {
-    position: 'absolute',
-    width: '100%',
-    bottom: 50,
+  title: {
+    flex: 2,
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.purple,
   },
 });

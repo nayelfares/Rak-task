@@ -15,11 +15,11 @@ function* loginSaga(action: any) {
   const {payload = {}} = action;
   try {
     let result: ResponseGenerator = yield loginApi(payload);
-    const {data, status}: any = result;
+    const {status}: any = result;
     if (successResponse.includes(status)) {
       yield put({
         type: LOGIN_SUCCESS,
-        loginRes: data,
+        loginRes: payload,
       });
     } else if (failedResponse.includes(status)) {
       yield put({

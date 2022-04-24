@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-
+import publicIP from 'react-native-public-ip';
 export const useDeviceInfo = (): any => {
   const [deviceName, setDeviceName] = useState('');
   const [macAddress, setMacAddress] = useState('');
@@ -12,7 +12,11 @@ export const useDeviceInfo = (): any => {
     setDeviceName(await DeviceInfo.getDeviceName());
     setMacAddress(await DeviceInfo.getMacAddress());
     setImei(await DeviceInfo.getSerialNumber());
-    setIpAddress(await DeviceInfo.getIpAddress());
+    publicIP()
+      .then(ip => {
+        setIpAddress(ip);
+      })
+      .catch();
   };
   useEffect(() => {
     getData();

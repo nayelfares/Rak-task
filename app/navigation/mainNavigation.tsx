@@ -5,21 +5,22 @@ import Package from '../assets/icons/Package';
 import Message from '../assets/icons/Message';
 import Token from '../assets/icons/Token';
 import Gps from '../assets/icons/Gps';
-import Onboarding from '../features/onboarding';
 import PackageSelected from '../assets/icons/PackageSelected';
 import MessageSelected from '../assets/icons/MessageSelected';
 import TokenSelected from '../assets/icons/TokenSelected';
 import GpsSelected from '../assets/icons/GpsSelected';
 import StackNav from './stackNav';
+import Empty from '../features/Empty';
+import colors from '../assets/colors';
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {
   headerShown: false,
   tabBarOptions: {
-    activeTintColor: '#900DCC',
+    activeTintColor: colors.purple,
   },
   tabBarStyle: {
-    activeTintColor: '#900DCC',
+    activeTintColor: colors.purple,
     height: Platform.OS === 'ios' ? 85 : 60,
   },
 };
@@ -29,7 +30,7 @@ const MainNavigator = (): React.ReactElement => (
       name="Products"
       component={StackNav}
       options={{
-        tabBarActiveTintColor: '#900DCC',
+        tabBarActiveTintColor: colors.purple,
         tabBarIcon: ({focused}: any) => {
           if (focused) {
             return <PackageSelected />;
@@ -41,9 +42,9 @@ const MainNavigator = (): React.ReactElement => (
     />
     <Tab.Screen
       name="Live chat"
-      component={Onboarding}
+      component={Empty}
       options={{
-        tabBarActiveTintColor: '#900DCC',
+        tabBarActiveTintColor: colors.purple,
         tabBarIcon: ({focused}: any) => {
           if (focused) {
             return <MessageSelected />;
@@ -55,9 +56,9 @@ const MainNavigator = (): React.ReactElement => (
     />
     <Tab.Screen
       name="RAKToken"
-      component={Onboarding}
+      component={Empty}
       options={{
-        tabBarActiveTintColor: '#900DCC',
+        tabBarActiveTintColor: colors.purple,
         tabBarIcon: ({focused}: any) => {
           if (focused) {
             return <TokenSelected />;
@@ -69,9 +70,9 @@ const MainNavigator = (): React.ReactElement => (
     />
     <Tab.Screen
       name="Locate us"
-      component={Onboarding}
+      component={Empty}
       options={{
-        tabBarActiveTintColor: '#900DCC',
+        tabBarActiveTintColor: colors.purple,
         tabBarIcon: ({focused}: any) => {
           if (focused) {
             return <GpsSelected />;
