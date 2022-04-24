@@ -17,6 +17,7 @@ function* loginSaga(action: any) {
     let result: ResponseGenerator = yield loginApi(payload);
     const {status}: any = result;
     if (successResponse.includes(status)) {
+      payload.loginAt = new Date().toLocaleString();
       yield put({
         type: LOGIN_SUCCESS,
         loginRes: payload,
