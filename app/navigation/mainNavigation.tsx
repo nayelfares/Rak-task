@@ -5,12 +5,21 @@ import Package from '../assets/icons/Package';
 import Message from '../assets/icons/Message';
 import Token from '../assets/icons/Token';
 import Gps from '../assets/icons/Gps';
-import Home from '../features/home';
+import Onboarding from '../features/onboarding';
+import PackageSelected from '../assets/icons/PackageSelected';
+import MessageSelected from '../assets/icons/MessageSelected';
+import TokenSelected from '../assets/icons/TokenSelected';
+import GpsSelected from '../assets/icons/GpsSelected';
+import StackNav from './stackNav';
 
 const Tab = createBottomTabNavigator();
 const screenOptions = {
   headerShown: false,
+  tabBarOptions: {
+    activeTintColor: '#900DCC',
+  },
   tabBarStyle: {
+    activeTintColor: '#900DCC',
     height: Platform.OS === 'ios' ? 85 : 60,
   },
 };
@@ -18,30 +27,58 @@ const MainNavigator = (): React.ReactElement => (
   <Tab.Navigator screenOptions={screenOptions}>
     <Tab.Screen
       name="Products"
-      component={Home}
+      component={StackNav}
       options={{
-        tabBarIcon: () => <Package />,
+        tabBarActiveTintColor: '#900DCC',
+        tabBarIcon: ({focused}: any) => {
+          if (focused) {
+            return <PackageSelected />;
+          } else {
+            return <Package />;
+          }
+        },
       }}
     />
     <Tab.Screen
       name="Live chat"
-      component={Home}
+      component={Onboarding}
       options={{
-        tabBarIcon: () => <Message />,
+        tabBarActiveTintColor: '#900DCC',
+        tabBarIcon: ({focused}: any) => {
+          if (focused) {
+            return <MessageSelected />;
+          } else {
+            return <Message />;
+          }
+        },
       }}
     />
     <Tab.Screen
       name="RAKToken"
-      component={Home}
+      component={Onboarding}
       options={{
-        tabBarIcon: () => <Token />,
+        tabBarActiveTintColor: '#900DCC',
+        tabBarIcon: ({focused}: any) => {
+          if (focused) {
+            return <TokenSelected />;
+          } else {
+            return <Token />;
+          }
+        },
       }}
     />
     <Tab.Screen
       name="Locate us"
-      component={Home}
+      component={Onboarding}
       options={{
-        tabBarIcon: () => <Gps />,
+        tabBarActiveTintColor: '#900DCC',
+        tabBarIcon: ({focused}: any) => {
+          if (focused) {
+            return <GpsSelected />;
+          } else {
+            return <Gps />;
+          }
+        },
       }}
     />
   </Tab.Navigator>

@@ -1,5 +1,5 @@
 import {fork} from 'redux-saga/effects';
-import {watchloginSaga} from '../features/home/store/sagas';
+import {watchloginSaga} from '../features/onboarding/store/sagas';
 
 function* rootSaga() {
   yield fork(watchloginSaga);
